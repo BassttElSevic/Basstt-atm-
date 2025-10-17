@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build ATM Simulator",
+      "type": "cppbuild",
+      "command": "g++",
+      "args": [
+        "-g",
+        "-std=c++14",
+        "-I${workspaceFolder}/ATM_Stim/Inc",
+        "${workspaceFolder}/ATM_Stim/Src/*.cpp",
+        "-o",
+        "${workspaceFolder}/ATM_Stim/ATM_Simulator.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "focus": true,
+        "clear": true,
+        "showReuseMessage": false
+      },
+      "options": {
+        "cwd": "${workspaceFolder}/ATM_Stim"
+      },
+      "problemMatcher": "$gcc"
+    }
+  ]
+}
