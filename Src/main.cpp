@@ -8,6 +8,17 @@
 #include <string>
 #include <windows.h>
 using namespace std;
+int safeReadInt() {
+    int value;
+    while (!(cin >> value)) {
+        cout << "输入无效，请输入一个数字: ";
+        cin.clear(); // 清除错误标志
+        cin.ignore(10000, '\n'); // 清除输入缓冲区
+    }
+    cin.ignore(10000, '\n'); // 清除输入缓冲区中的剩余字符
+    return value;
+}
+//讲真，我真傻，居然忘了设计个机制来防输入非数字导致的死循环
 
 int main() {
     // 初始化数据库
@@ -32,7 +43,7 @@ int main() {
         cout << "2. 忘记密码" << endl;
         cout << "3. 退出系统" << endl;
         cout << "请选择操作: ";
-        cin >> loginChoice;
+        loginChoice = safeReadInt();
         
         switch (loginChoice) {
             case 1: {
